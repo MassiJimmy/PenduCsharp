@@ -48,20 +48,23 @@ do
     }
     else
     {
-        for (int i = 0; i < mot.Length; i++)
+        if (lettre.Length == 1)
         {
-            lettreUpper = char.ToUpper(lettre[0]);
-            motUpper = char.ToUpper(mot[i]); // Convertir le caractère dans mot en majuscule
-            cacherUpper = char.ToUpper(cacher[i]); // Convertir le caractère dans cacher en majuscule
-
-            if (lettreUpper == motUpper && lettreUpper != cacherUpper)
+            for (int i = 0; i < mot.Length; i++)
             {
-                devine = true;
-                cacherArray[i] = motArray[i];
-                nbTrouve++;
+                lettreUpper = char.ToUpper(lettre[0]);
+                motUpper = char.ToUpper(mot[i]); // Convertir le caractère dans mot en majuscule
+                cacherUpper = char.ToUpper(cacher[i]); // Convertir le caractère dans cacher en majuscule
+
+                if (lettreUpper == motUpper && lettreUpper != cacherUpper)
+                {
+                    devine = true;
+                    cacherArray[i] = motArray[i];
+                    nbTrouve++;
+                }
             }
+            cacher = new string(cacherArray);
         }
-        cacher = new string(cacherArray);
     }
     if(devine == false)
     {
